@@ -1,4 +1,5 @@
 import CabinRow from "./CabinRow";
+import Empty from "../../ui/Empty";
 import Menus from "../../ui/Menus";
 // import styled from "styled-components";
 import Spinner from "../../ui/Spinner";
@@ -26,6 +27,8 @@ function CabinTable() {
   const [searchParams] = useSearchParams();
 
   if (isLoading) return <Spinner />;
+
+  if (!cabins.length) return <Empty resource="cabins" />;
 
   // 1) Filter
 
