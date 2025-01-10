@@ -1,17 +1,19 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import Dashboard from "./pages/Dashboard";
+
+import Account from "./pages/Account";
+import AppLayout from "./ui/AppLayout";
+import Booking from "./pages/booking";
 import Bookings from "./pages/Bookings";
 import Cabins from "./pages/Cabins";
-import Users from "./pages/Users";
-import Settings from "./pages/Settings";
-import Account from "./pages/Account";
+import Dashboard from "./pages/Dashboard";
+import GlobalStyles from "./styles/GlobalStyles";
 import Login from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
-import GlobalStyles from "./styles/GlobalStyles";
-import AppLayout from "./ui/AppLayout";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import Settings from "./pages/Settings";
 import { Toaster } from "react-hot-toast";
+import Users from "./pages/Users";
 
 // query client which sets the cache behind the scenes
 const queryClient = new QueryClient({
@@ -36,6 +38,7 @@ function App() {
 
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="bookings" element={<Bookings />} />
+            <Route path="bookings/:bookingId" element={<Booking />} />
             <Route path="cabins" element={<Cabins />} />
             <Route path="users" element={<Users />} />
             <Route path="settings" element={<Settings />} />
